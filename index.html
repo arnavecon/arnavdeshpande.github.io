@@ -5,56 +5,118 @@
   <title>Arnav Deshpande</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #fafafa;
-      max-width: 760px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      color: #111;
+    :root{
+      --bg: #fbfbfb;
+      --text: #111;
+      --muted: #5a5a5a;
+      --rule: #e7e7e7;
     }
 
-    a { text-decoration: none; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      background: var(--bg);
+      max-width: 780px;
+      margin: 2.75rem auto;
+      padding: 0 1rem;
+
+      line-height: 1.55;
+      font-size: 15px;  /* smaller + sharper */
+      color: var(--text);
+    }
+
+    a { color: var(--text); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     nav {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
     }
-    nav a { color: #111; }
-    nav a.active { font-weight: 600; }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro {
-      color: #555;
-      max-width: 65ch;
-      margin-top: 0;
+      font-size: 1.85rem;
+      margin: 0 0 0.75rem 0;
+      font-weight: 650;
+      letter-spacing: -0.01em;
     }
 
     .header {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: flex-start;
-      margin-top: 1rem;
+      margin-top: 0.75rem;
     }
 
     .profile-pic {
-      width: 210px;
-      height: 210px;
+      width: 190px;
+      height: 190px;
       object-fit: cover;
       border-radius: 14px;
       flex-shrink: 0;
     }
 
+    .intro {
+      color: var(--muted);
+      max-width: 68ch;
+      margin: 0;
+    }
+
     .links {
-      margin-top: 1rem;
+      margin-top: 0.65rem;
+      font-size: 0.98rem;
+    }
+
+    .sep { color: var(--muted); padding: 0 0.35rem; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 1.5rem 0;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.75rem 0;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+
+    /* Research list without bullets */
+    .paper {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 1rem;
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .paper:first-of-type { border-top: none; padding-top: 0.25rem; }
+
+    .paper-title {
+      font-weight: 520; /* not bold */
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: 0.95em;
+      grid-column: 1 / -1;
+    }
+
+    .paper-links {
+      white-space: nowrap;
+      font-size: 0.95em;
+      color: var(--muted);
+    }
+    .paper-links a { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .header { flex-direction: column; }
+      .profile-pic { width: 160px; height: 160px; }
+      .paper { grid-template-columns: 1fr; }
+      .paper-links { white-space: normal; }
     }
   </style>
 </head>
@@ -62,29 +124,66 @@
 <body>
   <nav>
     <a class="active" href="index.html">Home</a>
-    <a href="research.html">Research</a>
   </nav>
 
   <h1>Arnav Deshpande</h1>
 
   <div class="header">
     <img src="me.jpg" alt="Arnav Deshpande" class="profile-pic" />
-
     <div>
       <p class="intro">
-Welcome to my corner of the internet, thanks for stopping by! I am a third year economics PhD student at NYU. I am interested in macroeconomics and macro-development.
+        Welcome to my corner of the internet, thanks for stopping by! I am a third year economics PhD student at NYU.
+        I am interested in macro-development, inequality and trade.
       </p>
 
-<p class="links">
-  <a href="cv.pdf" target="_blank">CV</a>
-  &nbsp;&middot;&nbsp;
-  <a href="mailto:ad6790@nyu.edu">ad6790@nyu.edu</a>
-  &nbsp;&middot;&nbsp;
-  <a href="https://x.com/arnav_econ" target="_blank" aria-label="X">𝕏</a>
-  &nbsp;&middot;&nbsp;
-  <a href="https://www.linkedin.com/in/arnav-deshpande-a8601912a/" target="_blank">LinkedIn</a>
-</p>
+      <p class="links">
+        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <span class="sep">·</span>
+        <a href="mailto:ad6790@nyu.edu">ad6790@nyu.edu</a>
+        <span class="sep">·</span>
+        <a href="https://x.com/arnav_econ" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/arnav-deshpande-a8601912a/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
     </div>
   </div>
+
+  <hr />
+
+  <h2>Research</h2>
+
+  <div class="paper">
+    <div class="paper-title">Aggregate Effects of Workfare Programs</div>
+    <div class="paper-links">
+      <a href="workfare_slides.pdf" target="_blank" rel="noopener">Slides</a>
+      <span class="sep">·</span>
+      <a href="workfare_draft.pdf" target="_blank" rel="noopener">Draft</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Technology and Search in the Market for Rental Housing</div>
+    <div class="paper-links">
+      <a href="rental_slides.pdf" target="_blank" rel="noopener">Slides</a>
+      <span class="sep">·</span>
+      <a href="rental_draft.pdf" target="_blank" rel="noopener">Draft</a>
+    </div>
+    <div class="paper-meta">with Olalekan Bello</div>
+  </div>
+
+  <hr />
+
+  <h2>Pre-doctoral</h2>
+
+  <div class="paper">
+    <div class="paper-title">Challenges to Measuring Immunization Coverage with Asynchronous Surveys</div>
+    <div class="paper-links">
+      <a href="immunization_slides.pdf" target="_blank" rel="noopener">Slides</a>
+      <span class="sep">·</span>
+      <a href="immunization_draft.pdf" target="_blank" rel="noopener">Draft</a>
+    </div>
+    <div class="paper-meta">with Rijul Grover and Rohini Somanathan</div>
+  </div>
+
 </body>
 </html>
